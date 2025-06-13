@@ -11,12 +11,15 @@ namespace cleanArchitectureApi.Controllers
     public class GenreController:ControllerBase
     {
         private readonly IGenreService _genreService;
+        private readonly ILogger<GenreController> _logger;
 
-        public GenreController(IGenreService genreService) {
+        public GenreController(IGenreService genreService, ILogger<GenreController> logger)
+        {
             _genreService = genreService;
+            _logger = logger;
         }
 
-        [HttpGet("genres")]
+        [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetGenres()
         {
@@ -27,10 +30,11 @@ namespace cleanArchitectureApi.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error fetching genres");
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPost("genres")]
+        [HttpPost]
         [Authorize]
 
         public async Task<IActionResult> AddGenre([FromBody] GenreDto genre) {
@@ -42,10 +46,12 @@ namespace cleanArchitectureApi.Controllers
                     Description = genre.Description
 
                 });
+                _logger.LogInformation($"Genre {response.Name} created with id {response.Id}");
                 return Ok($"Genre {response.Name} created with id {response.Id}");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error adding genre");
                 return BadRequest(ex.Message);
             }
         }

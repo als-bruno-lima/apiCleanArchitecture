@@ -14,10 +14,8 @@ namespace cleanArchitecture.Infraestructure.Repository
     {
 
         private readonly IApplicationContext _context;
-        private readonly IUtilsService _utilsService;
-        public UserRepository(IApplicationContext context,IUtilsService utilsService) {
+        public UserRepository(IApplicationContext context) {
             _context = context;
-            _utilsService = utilsService;
         }
 
         public async Task RegisterUser(User user) {
