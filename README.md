@@ -6,7 +6,7 @@ Desarrollar una API Rest en base a clean Architecture que permita gestionar una 
 Para la gestión de la base de datos se utilizó SQL Server y el ORM EntityFramework, el deployment se realizó en azure.
 
 El repositorio se encuentra alojado en github, para clonarlo correr en consola:
-git clone 
+git clone https://github.com/als-bruno-lima/apiCleanArchitecture.git
 con el proyecto ya creado correr las migraciones con el comando: Update-database
 Para correr el proyecto usa F5 para compilarlo, esto abrirá una interfaz de swagger en el navegador con los endpoints disponibles.
 
