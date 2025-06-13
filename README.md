@@ -10,7 +10,7 @@ git clone
 con el proyecto ya creado correr las migraciones con el comando: Update-database
 Para correr el proyecto usa F5 para compilarlo, esto abrirá una interfaz de swagger en el navegador con los endpoints disponibles.
 
-Para ver el proyecto desde el navegador deployado en azure acceder en:  
+Para ver el proyecto desde el navegador deployado en azure acceder en:  https://cleanarchitectureapi20250613115344-f0c4a8azfzcgfmew.canadacentral-01.azurewebsites.net/swagger/index.html
 Ejemplo de uso
 para acceder a los endpoints primero hay que estar logueado.
 •	crear usuario
