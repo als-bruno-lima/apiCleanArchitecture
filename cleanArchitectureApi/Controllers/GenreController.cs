@@ -8,7 +8,7 @@ namespace cleanArchitectureApi.Controllers
 {
     [ApiController]
     [Route("/Genre")]
-    public class GenreController:ControllerBase
+    public class GenreController : ControllerBase
     {
         private readonly IGenreService _genreService;
         private readonly ILogger<GenreController> _logger;
@@ -37,7 +37,8 @@ namespace cleanArchitectureApi.Controllers
         [HttpPost]
         [Authorize]
 
-        public async Task<IActionResult> AddGenre([FromBody] GenreDto genre) {
+        public async Task<IActionResult> AddGenre([FromBody] GenreDto genre)
+        {
             try
             {
                 var response = await _genreService.AddGenre(new cleanArchitecture.Domain.Genre

@@ -10,7 +10,7 @@ using cleanArchitecture.Infraestructure.Dto;
 
 namespace cleanArchitecture.Application.Service
 {
-    public class AuthorService:IAuthorService
+    public class AuthorService : IAuthorService
     {
 
         private readonly IAuthorRepository _authorRepository;

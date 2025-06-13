@@ -9,7 +9,7 @@ namespace cleanArchitectureApi.Controllers
 {
     [ApiController]
     [Route("User")]
-    public class UserController:ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserService _userService;

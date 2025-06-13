@@ -26,8 +26,8 @@ namespace cleanArchitecture.Domain
         public State status { get; set; }
 
 
-    
 
 
-}
+
+    }
 }

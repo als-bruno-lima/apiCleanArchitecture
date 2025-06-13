@@ -9,11 +9,12 @@ using cleanArchitecture.Domain;
 
 namespace cleanArchitecture.Application.Service
 {
-    public class GenreService:IGenreService
+    public class GenreService : IGenreService
     {
         private readonly IGenreRepository _genreRepository;
 
-        public GenreService(IGenreRepository genreRepository) {
+        public GenreService(IGenreRepository genreRepository)
+        {
             _genreRepository = genreRepository;
         }
 
@@ -28,7 +29,7 @@ namespace cleanArchitecture.Application.Service
             {
                 throw new Exception("Error getting genres", ex);
             }
-            }
+        }
 
         public async Task<Genre> GetGenreById(int id)
         {

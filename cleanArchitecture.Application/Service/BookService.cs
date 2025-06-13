@@ -6,7 +6,7 @@ using cleanArchitecture.Domain;
 
 namespace cleanArchitecture.Application.Service
 {
-    public class BookService:IBookService
+    public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
         private readonly IAuthorRepository _authorRepository;

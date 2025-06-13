@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace cleanArchitecture.Infraestructure
 {
-    public class ApplicationContext:DbContext, IApplicationContext
+    public class ApplicationContext : DbContext, IApplicationContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
@@ -23,7 +23,7 @@ namespace cleanArchitecture.Infraestructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().HasIndex(i=>i.Email).IsUnique(); 
+            modelBuilder.Entity<User>().HasIndex(i => i.Email).IsUnique();
         }
 
 

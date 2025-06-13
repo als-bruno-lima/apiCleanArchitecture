@@ -16,7 +16,7 @@ builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.Re
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("cleanArchitectureApi")));
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("cleanArchitectureApi")));
 
 builder.Services.AddTransient<IApplicationContext, ApplicationContext>();
 builder.Services.AddTransient<IAuthorService, AuthorService>();
@@ -33,7 +33,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options => {
+}).AddJwtBearer(options =>
+{
     options.RequireHttpsMetadata = false;
     options.SaveToken = true;
     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
@@ -50,7 +51,8 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddSwaggerGen(c => {
+builder.Services.AddSwaggerGen(c =>
+{
     c.SwaggerDoc("apiClean", new OpenApiInfo
     {
         Title = "API clean Prueba",
@@ -59,22 +61,22 @@ builder.Services.AddSwaggerGen(c => {
 
     });
     var jwtSecurityScheme = new OpenApiSecurityScheme
-{
-    BearerFormat = "JWT",
-    Name = "Authorization",
-    In = ParameterLocation.Header,
-    Type = SecuritySchemeType.Http,
-    Scheme = JwtBearerDefaults.AuthenticationScheme,
-    Description = "Ingrese el token JWT en el campo de texto a continuaci�n.",
-    Reference = new OpenApiReference
     {
-        Type = ReferenceType.SecurityScheme,
-        Id = JwtBearerDefaults.AuthenticationScheme
-    }
-};
+        BearerFormat = "JWT",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = JwtBearerDefaults.AuthenticationScheme,
+        Description = "Ingrese el token JWT en el campo de texto a continuaci�n.",
+        Reference = new OpenApiReference
+        {
+            Type = ReferenceType.SecurityScheme,
+            Id = JwtBearerDefaults.AuthenticationScheme
+        }
+    };
 
-c.AddSecurityDefinition("Bearer", jwtSecurityScheme);
-c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    c.AddSecurityDefinition("Bearer", jwtSecurityScheme);
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         { jwtSecurityScheme, Array.Empty<string>() }
     });

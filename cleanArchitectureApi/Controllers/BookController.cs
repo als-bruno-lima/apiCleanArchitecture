@@ -20,11 +20,11 @@ namespace cleanArchitectureApi.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetBooksWithFilter(string? title = null, string? ISBN = null, int? authorId=0, int? genreId=0)
+        public async Task<IActionResult> GetBooksWithFilter(string? title = null, string? ISBN = null, int? authorId = 0, int? genreId = 0)
         {
             try
             {
-                var books = await _bookService.GetBook(title,ISBN,authorId,genreId);
+                var books = await _bookService.GetBook(title, ISBN, authorId, genreId);
                 _logger.LogInformation($"Fetching books with filters: Title={title}, ISBN={ISBN}, AuthorId={authorId}, GenreId={genreId}");
                 return Ok(books);
             }
@@ -101,11 +101,12 @@ namespace cleanArchitectureApi.Controllers
         [Authorize]
         public async Task<IActionResult> UpdateBook(int id, BookDto bookDto)
         {
-            try { 
+            try
+            {
 
-               await _bookService.UpdateBook(id, bookDto);
+                await _bookService.UpdateBook(id, bookDto);
                 _logger.LogInformation($"Book with id {id} updated successfully");
-                return Ok($"Book with id {id} updated successfully");   
+                return Ok($"Book with id {id} updated successfully");
             }
             catch (Exception ex)
             {
@@ -114,5 +115,5 @@ namespace cleanArchitectureApi.Controllers
             }
 
         }
-}
+    }
 }
